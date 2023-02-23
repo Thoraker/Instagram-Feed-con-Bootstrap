@@ -7,8 +7,8 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     </head>
     <body>
-        <nav class="navbar bg-body-tertiary">
-            <div class="container">
+        <nav class="navbar bg-body-tertiary">       <!-- Inicio de Navbar -->
+            <div class="container-fluid">
                 <div class="col">
                     <a class="navbar-brand" href="#">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
@@ -16,23 +16,237 @@
                         </svg> &nbsp Instagram
                     </a>                        
                 </div>
-                <button type="button" class="btn btn-success mx-3">Create new post</button>
+                <button type="button" class="btn btn-success mx-3" data-bs-toggle="modal" data-bs-target="#ModalNewPost">Create new post</button>
                 <div class="dropdown">
                     <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
                         <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
                         </svg>
                     </button>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu dropdown-menu-end">
                         <li><a class="dropdown-item" href="#">Profile</a></li>
                         <li><a class="dropdown-item" href="#">Accesibility</a></li>
                         <li><a class="dropdown-item" href="#">Privacy and Data</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item color" href="#" style="color: red">Log Out</a></li>
+                        <li><a class="dropdown-item text-danger" href="#">Log Out</a></li>
                     </ul>
                 </div>
             </div>
-        </nav>        
+        </nav>                                      <!-- Final de Navbar -->
+
+        <div class="modal fade" id="ModalNewPost" tabindex="-1" aria-labelledby="ModalNewPostLabel" aria-hidden="true">     <!-- Inicio de Modal -->
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="ModalNewPostLabel">Create new post</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Caption:</label>
+                            <textarea class="form-control" id="message-text" placeholder="Add the caption of your post here"></textarea>
+                        </div>
+                        <button type="button" class="btn btn-outline-secondary text-dark">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-camera-fill" viewBox="0 0 16 16">       <!-- Icono Camara -->
+                                <path d="M10.5 8.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                                <path d="M2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2zm.5 2a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm9 2.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0z"/>
+                            </svg>
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary text-dark">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">      <!-- Icono de Geo -->
+                                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                            </svg>
+                        </button>
+                    </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success">Publish</button>
+                    </div>
+                </div>
+            </div>
+        </div>                                                                                                              <!-- Final de Modal -->
+
+        <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">      <!-- Inicio Nav tab -->
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-grid-3x3-gap" viewBox="0 0 16 16">
+                        <path d="M4 2v2H2V2h2zm1 12v-2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V7a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm5 10v-2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V7a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zM9 2v2H7V2h2zm5 0v2h-2V2h2zM4 7v2H2V7h2zm5 0v2H7V7h2zm5 0h-2v2h2V7zM4 12v2H2v-2h2zm5 0v2H7v-2h2zm5 0v2h-2v-2h2zM12 1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zm-1 6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V7zm1 4a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-2z"/>
+                    </svg>
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-view-list" viewBox="0 0 16 16">
+                        <path d="M3 4.5h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1H3zM1 2a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 2zm0 12a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 14z"/>
+                    </svg>                        
+                </button>
+            </li>
+        </ul>                                                                           <!-- Fin Nav tab -->
+
+            <div class="tab-content" id="myTabContent">     <!-- Paneles del Nav tab -->
+                <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">      <!-- Grilla de fotos -->
+                    <div class="container-fluid">
+                        <div class="row p-5">
+                            <div class="col-4">
+                                <img src="img\7a4qx9-1.jpg.jpg" class="img-fluid img-thumbnail" alt="..." style="width: 500px ; height: 500px;">
+                            </div>
+                            <div class="col-4">
+                                <img src="img\11-1-600x536.jpg.jpg" class="img-fluid img-thumbnail" alt="..." style="width: 500px ; height: 500px;">
+                            </div>
+                            <div class="col-4">                                
+                                <img src="img\FdMRIBNXoAIIsmt-e1663780074792-719x430.jpg" class="img-fluid img-thumbnail" alt="..." style="width: 500px ; height: 500px;">
+                            </div>
+                        </div>
+                        <div class="row p-5">
+                            <div class="col-4">
+                                <img src="img\images.jpg" class="img-fluid img-thumbnail" alt="..." style="width: 500px ; height: 500px;">
+                            </div>
+                            <div class="col-4">
+                                <img src="img\los-memes-mas-cachondos-para-hacer-menos-empinada-la-cuesta-de-enero-4-2.jpg.jpg" class="img-fluid img-thumbnail" alt="..." style="width: 500px ; height: 500px;">
+                            </div>
+                            <div class="col-4">                                
+                                <img src="img\meme-coronavirus-matias-prats-1.jpg" class="img-fluid img-thumbnail" alt="..." style="width: 500px ; height: 500px;">
+                            </div>
+                        </div>
+                        <div class="row p-5">
+                            <div class="col-4">
+                                <img src="img\meme-coronavirus-sintomas.jpg" class="img-fluid img-thumbnail" alt="..." style="width: 500px ; height: 500px;">
+                            </div>
+                            <div class="col-4">
+                                <img src="img\SWTVMW5UXFCRJKHVGD52BS2X4U.avif" class="img-fluid img-thumbnail" alt="..." style="width: 500px ; height: 500px;">
+                            </div>
+                            <div class="col-4">                                
+                                <img src="img\tumblr_3bf4c6c8ac5cc00bc0a3a1d8e641290f_c50fa803_400.jpg" class="img-fluid img-thumbnail" alt="..." style="width: 500px ; height: 500px;">
+                            </div>
+                        </div>
+                        <div class="row p-5">
+                            <div class="col-4">
+                                <img src="img\tumblr_13890b7443ecfa409c30368da49e6bd4_ae9f32f3_400.png" class="img-fluid img-thumbnail" alt="..." style="width: 500px ; height: 500px;">
+                            </div>
+                            <div class="col-4">
+                                <img src="img\tumblr_ece23f85960eaeb85caa068539066f2a_0c56b9a7_400.jpg" class="img-fluid img-thumbnail" alt="..." style="width: 500px ; height: 500px;">
+                            </div>
+                            <div class="col-4">                                
+                                <img src="img\x3m7bl3q7fhybol6tafstufnxq-1080x1484.jpeg.jpg" class="img-fluid img-thumbnail" alt="..." style="width: 500px ; height: 500px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">        <!-- Cartas con fotos -->
+                    <div class="mx-auto" style="width: 30rem;">                        
+                        <div class="card my-3" style="width: 30rem;">
+                            <div class="card-header">
+                                <h5>Memes de del día del amor </h5>
+                            </div>
+                            <img src="img\7a4qx9-1.jpg.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">Almenos com mi Xbox tengo el control...</p>
+                            </div>
+                        </div>
+                        <div class="card my-3" style="width: 30rem;">
+                            <div class="card-header">
+                                <h5>Memes de Leny</h5>
+                            </div>
+                            <img src="img\11-1-600x536.jpg.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">Ese wn es hijo unico parece...</p>
+                            </div>
+                        </div>
+                        <div class="card my-3" style="width: 30rem;">
+                            <div class="card-header">
+                                <h5>Memes de confinamiento</h5>
+                            </div>
+                            <img src="img\FdMRIBNXoAIIsmt-e1663780074792-719x430.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">Si soy!! si soy!! ygual me siguen las mujeres XD</p>
+                            </div>
+                        </div>
+                        <div class="card my-3" style="width: 30rem;">
+                            <div class="card-header">
+                                <h5>Memes de la vida diaria</h5>
+                            </div>
+                            <img src="img\images.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">Maldito Youtube cuanto daño me has hecho, veamos un videito</p>
+                            </div>
+                        </div>
+                        <div class="card my-3" style="width: 30rem;">
+                            <div class="card-header">
+                                <h5>Memes de nosotros los pobres</h5>
+                            </div>
+                            <img src="img\los-memes-mas-cachondos-para-hacer-menos-empinada-la-cuesta-de-enero-4-2.jpg.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">Sin palabras T.T</p>
+                            </div>
+                        </div>
+                        <div class="card my-3" style="width: 30rem;">
+                            <div class="card-header">
+                                <h5>Memes de coronavirus</h5>
+                            </div>
+                            <img src="img\meme-coronavirus-matias-prats-1.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">Más Carillas!! Jajajajaja!!!</p>
+                            </div>
+                        </div>
+                        <div class="card my-3" style="width: 30rem;">
+                            <div class="card-header">
+                                <h5>Memes de coronavirus</h5>
+                            </div>
+                            <img src="img\meme-coronavirus-sintomas.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">Nooo! la cuarentena!!!</p>
+                            </div>
+                        </div>
+                        <div class="card my-3" style="width: 30rem;">
+                            <div class="card-header">
+                                <h5>Piñericosas</h5>
+                            </div>
+                            <img src="img\SWTVMW5UXFCRJKHVGD52BS2X4U.avif" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">Me haces tanto reir Tata Yaya</p>
+                            </div>
+                        </div>
+                        <div class="card my-3" style="width: 30rem;">
+                            <div class="card-header">
+                                <h5>Memes de la adultes</h5>
+                            </div>
+                            <img src="img\tumblr_3bf4c6c8ac5cc00bc0a3a1d8e641290f_c50fa803_400.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">No quiero!!!</p>
+                            </div>
+                        </div>
+                        <div class="card my-3" style="width: 30rem;">
+                            <div class="card-header">
+                                <h5>Que elegancia la de Francia</h5>
+                            </div>
+                            <img src="img\tumblr_13890b7443ecfa409c30368da49e6bd4_ae9f32f3_400.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">Uh la la señor francés.</p>
+                            </div>
+                        </div>
+                        <div class="card my-3" style="width: 30rem;">
+                            <div class="card-header">
+                                <h5>Sres Conductores...</h5>
+                            </div>
+                            <img src="img\tumblr_ece23f85960eaeb85caa068539066f2a_0c56b9a7_400.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">Te estan cagando que vas tan apurado a casa!!</p>
+                            </div>
+                        </div>
+                        <div class="card my-3" style="width: 30rem;">
+                            <div class="card-header">
+                                <h5>Memes de San Valentín</h5>
+                            </div>
+                            <img src="img\x3m7bl3q7fhybol6tafstufnxq-1080x1484.jpeg.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">Solteria preciado regalo!! XD</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
   </body>
 </html>
